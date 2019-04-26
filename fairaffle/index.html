@@ -5,6 +5,14 @@
 <body>
   <script src="raffle.js"></script>
 
+  <script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.1/seedrandom.min.js"> </script>
+  <script>
+  // Make a predictable pseudorandom number generator.
+  var myrng = new Math.seedrandom('hello.');
+  console.log(myrng());                // Always 0.9282578795792454
+  </script>
+
+
   (1) Enter raffle ID (seed) to check for: <input type="text" id="input_raffleRef"> <br>
   (2) Enter number of participants: <input type="text" id="input_participants"> <br>
   (3) Secret to everybody seed: <i>automatically derived</i>

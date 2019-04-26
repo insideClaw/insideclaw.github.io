@@ -1,4 +1,4 @@
 
-let name = prompt("What is your raffle ID?");
-
-alert( 'Hello, world!' );
+function drawRaffle(){
+  alert( 'Hello, world!' );
+}

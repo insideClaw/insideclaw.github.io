@@ -1,8 +1,8 @@
 
 function getSaltySeededRandom(seed, max){
-  // TODO: Find way to set RNG's seed like in Python, so that the result is the same
-  rng_outcome = Math.floor((Math.random() * max) + 1);
-  return(rng_outcome)
+  // Make a predictable pseudorandom number generator.
+  var myrng = new Math.seedrandom('hello.');
+  console.log(myrng());                // Always 0.9282578795792454
 }
 
 function saltMySeeds(seed1, seed2){

@@ -1,3 +1,3 @@
 # Fai(r)Raffle
 
-A way to hold a platform-agnostic raffle in a completely transparent way, verifiable by anyone yet with the outcome unknown until the designed time
+Using any predetermined seed and the number of total participants at time of raffle close, fairly pick a raffle winner in a way that's reverse-engineerable, yet the outcome is unknown until the end.

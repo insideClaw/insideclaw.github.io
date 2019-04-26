@@ -1,8 +1,23 @@
 
+Math.seededRandom = function(max, min) {
+    max = max || 1;
+    min = min || 0;
+
+    Math.seed = (Math.seed * 9301 + 49297) % 233280;
+    var rnd = Math.seed / 233280;
+
+    return min + rnd * (max - min);
+}
+
 function getSaltySeededRandom(seed, max){
-  // Make a predictable pseudorandom number generator.
-  var myrng = new Math.seedrandom('hello.');
-  console.log(myrng());                // Always 0.9282578795792454
+  // TODO: Provide that using saltMySeeds()
+  // the initial seed
+  Math.seed = 6;
+
+  // in order to work 'Math.seed' must NOT be undefined,
+  // so in any case, you HAVE to provide a Math.seed
+  seededRandom = Math.seededRandom(max, 1)
+  return(seededRandom)
 }
 
 function saltMySeeds(seed1, seed2){

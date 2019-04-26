@@ -4,8 +4,13 @@
 <body>
   <script src="raffle.js"></script>
 
-  Enter raffle ID to check for: <input type="text" name="input_raffleRef"> <br>
-  <button type="button" name="btn_checkRaffleRef" onClick="drawRaffle()">Check</button>
+  (1) Enter raffle ID (seed) to check for: <input type="text" id="input_raffleRef"> <br>
+  (2) Enter number of participants: <input type="text" id="input_participants"> <br>
+  (3) Secret to everybody seed: <i>automatically derived</i>
+  <br><br>
+
+  <button type="button" onClick="drawRaffle()">Check outcome</button><br>
+  <div id="result"></div>
 
 </body>
 

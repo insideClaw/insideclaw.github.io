@@ -12,7 +12,7 @@ Math.seededRandom = function(max, min) {
 function getSaltySeededRandom(seed, max){
   // TODO: Provide that using saltMySeeds()
   // the initial seed
-  Math.seed = 6;
+  Math.seed = seed;
 
   // in order to work 'Math.seed' must NOT be undefined,
   // so in any case, you HAVE to provide a Math.seed
@@ -22,7 +22,7 @@ function getSaltySeededRandom(seed, max){
 
 function saltMySeeds(seed1, seed2){
   // Create a unique signature (collate multiple seeds), given two arbitrary strings.
-  saltedSeed = seed1 + seed2
+  saltedSeed = seed1
   return(saltedSeed)
 }
 

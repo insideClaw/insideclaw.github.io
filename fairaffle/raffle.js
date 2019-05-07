@@ -37,10 +37,10 @@ async function getNewsArticle(){
   //await the response of the fetch call
   let response = await fetch(endpointAPI);
   //proceed once the first promise is resolved.
-  let seed_secret = await response.json()
+  let newsItems = await response.json()
   //proceed only when the second promise is resolved
-  console.log(seed_secret)
-  return seed_secret;
+  console.log(newsItems)
+  return newsItems;
 }
 
 function drawRaffle(){
@@ -53,7 +53,10 @@ function drawRaffle(){
   var final_seed = "";
   // Set the initial message while value is being fetched
   getNewsArticle()
-  .then(function(seed_secret){
+  .then(function(newsItems){
+    // TODO: Select a meaningful item as the chosen one
+    seed_secret = newsItems.response.results[0]["id"]
+
     // TODO: Currently just returns argument1
     final_seed = combineSeeds(seed_reference, seed_secret)
 

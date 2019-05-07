@@ -21,7 +21,7 @@ function getSaltySeededRandom(seed, max){
   return(seededRandom)
 }
 
-function saltMySeeds(seed1, seed2){
+function combineSeeds(seed1, seed2){
   // Create a unique signature (collate multiple seeds), given two arbitrary strings.
   // TODO: Allow strings as seed by converting them to floats later
   saltedSeed = seed1
@@ -31,7 +31,30 @@ function saltMySeeds(seed1, seed2){
 
 function getNewsArticle(){
   // Fetches the seed, something that nobody could know until the time it's released.
-  return("theseAreTomorrowsNewsRightNow")
+  var APIkey = "50860275-8a99-4b1e-811b-a1f0bba13c11"
+  var endpointAPI = "https://content.guardianapis.com/search?api-key=" + APIkey
+
+  //Create the XHR Object
+  let xhr = new XMLHttpRequest;
+  //Call the open function, GET-type of request, url, true-asynchronous
+  xhr.open('GET', endpointAPI, true)
+  //Initialize variable that will hold the result
+  var newsItem = ""
+  //call the onload
+  xhr.onload = function()
+      {
+          //check if the status is 200(means everything is okay)
+          if (this.status === 200)
+              {
+                  //return server response as an object with JSON.parse
+                  console.log(JSON.parse(this.responseText));
+                  newsItem = JSON.parse(this.responseText)
+      }
+              }
+  //call send
+  xhr.send();
+
+  return(newsItem)
 }
 
 function drawRaffle(){
@@ -48,5 +71,5 @@ function drawRaffle(){
   // Calculate winner
   winner = getSaltySeededRandom(final_seed, number_participants)
   // Present result to the user
-  document.getElementById("result").innerHTML = winner;
+  document.getElementById("result").innerHTML = seed_secret //winner;
 }

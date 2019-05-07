@@ -16,7 +16,8 @@ function getSaltySeededRandom(seed, max){
 
   // in order to work 'Math.seed' must NOT be undefined,
   // so in any case, you HAVE to provide a Math.seed
-  seededRandom = Math.seededRandom(max, 1)
+  seededRandomFloating = Math.seededRandom(max, 1)
+  seededRandom = Math.trunc( seededRandomFloating )
   return(seededRandom)
 }
 

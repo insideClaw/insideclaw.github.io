@@ -22,7 +22,9 @@ function getSaltySeededRandom(seed, max){
 
 function saltMySeeds(seed1, seed2){
   // Create a unique signature (collate multiple seeds), given two arbitrary strings.
+  // TODO: Allow strings as seed by converting them to floats later
   saltedSeed = seed1
+  // TODO: Add the salt from news article once ready
   return(saltedSeed)
 }
 
@@ -39,7 +41,8 @@ function drawRaffle(){
   // Attempt the secret that nobody knows until it's out, tell user it's too early if not possible
   var seed_secret = getNewsArticle()
 
-  var final_seed = saltMySeeds(seed_reference, seed_secret)
+  // TODO: Currently just returns argument1
+  var final_seed = combineSeeds(seed_reference, seed_secret)
   // End part - reached only if the secret seed has been released
   // Calculate winner
   winner = getSaltySeededRandom(final_seed, number_participants)

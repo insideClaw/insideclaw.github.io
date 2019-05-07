@@ -29,32 +29,18 @@ function combineSeeds(seed1, seed2){
   return(saltedSeed)
 }
 
-function getNewsArticle(){
-  // Fetches the seed, something that nobody could know until the time it's released.
+async function getNewsArticle(){
+  // Fetches the seed, something that nobody knows until it's out, tell user it's too early if not possible
   var APIkey = "50860275-8a99-4b1e-811b-a1f0bba13c11"
   var endpointAPI = "https://content.guardianapis.com/search?api-key=" + APIkey
 
-  //Create the XHR Object
-  let xhr = new XMLHttpRequest;
-  //Call the open function, GET-type of request, url, true-asynchronous
-  xhr.open('GET', endpointAPI, true)
-  //Initialize variable that will hold the result
-  var newsItem = ""
-  //call the onload
-  xhr.onload = function()
-      {
-          //check if the status is 200(means everything is okay)
-          if (this.status === 200)
-              {
-                  //return server response as an object with JSON.parse
-                  console.log(JSON.parse(this.responseText));
-                  newsItem = JSON.parse(this.responseText)
-      }
-              }
-  //call send
-  xhr.send();
-
-  return(newsItem)
+  //await the response of the fetch call
+  let response = await fetch(endpointAPI);
+  //proceed once the first promise is resolved.
+  let seed_secret = await response.json()
+  //proceed only when the second promise is resolved
+  console.log(seed_secret)
+  return seed_secret;
 }
 
 function drawRaffle(){
@@ -62,14 +48,19 @@ function drawRaffle(){
   var seed_reference = document.getElementById("input_raffleRef").value;
   // Obtain the participants number user provided
   var number_participants = document.getElementById("input_participants").value;
-  // Attempt the secret that nobody knows until it's out, tell user it's too early if not possible
-  var seed_secret = getNewsArticle()
 
-  // TODO: Currently just returns argument1
-  var final_seed = combineSeeds(seed_reference, seed_secret)
-  // End part - reached only if the secret seed has been released
-  // Calculate winner
-  winner = getSaltySeededRandom(final_seed, number_participants)
-  // Present result to the user
-  document.getElementById("result").innerHTML = seed_secret //winner;
+
+  var final_seed = "";
+  // Set the initial message while value is being fetched
+  getNewsArticle()
+  .then(function(seed_secret){
+    // TODO: Currently just returns argument1
+    final_seed = combineSeeds(seed_reference, seed_secret)
+
+    // End part - reached only if the secret seed has been released
+    // Calculate winner
+    winner = getSaltySeededRandom(final_seed, number_participants)
+    // Present result to the user
+    document.getElementById("result").innerHTML = seed_secret //winner;
+  })
 }

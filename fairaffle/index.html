@@ -1,17 +1,20 @@
 <!DOCTYPE HTML>
 <html>
 <title>FaiRaffle</title>
+<head>
+  <link rel="stylesheet" href="styling.css">
+</head>
 
 <body>
   <script src="raffle.js"></script>
 
   (1) Enter raffle ID (seed) to check for (integer for now): <input type="text" id="input_raffleRef"> <br>
   (2) Enter number of participants: <input type="text" id="input_participants"> <br>
-  (3) Secret to everybody seed: <i>automatically derived</i>
+  (3) Impartial external seed: <div id=news><i>automatically derived from The Guardian</i></div>
   <br><br>
 
   <button type="button" onClick="drawRaffle()">Check outcome</button><br>
-  <div id="result"></div>
+  <div class="shadowbox" id="result"></div>
 
 </body>
 

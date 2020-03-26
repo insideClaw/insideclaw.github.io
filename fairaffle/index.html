@@ -8,15 +8,27 @@
 <body>
   <script src="raffle.js"></script>
 
-  (1) Enter raffle ID (seed) to check for: <input type="text" id="input_raffleRef"> <br>
-  (2) Enter number of participants: <input type="text" id="input_participants"> <br>
-  (3) Impartial external seed: <div id=news><i>automatically derived from The Guardian</i></div>
-  <br><br>
+  Enter a raffle ID (seed) to register / check for.
+  <input type="text" id="input_raffleRef"> <br>
 
   <button type="button" onClick="drawRaffle()">Check outcome</button><br>
   <div class="shadowbox" id="result"></div>
+  <div class="shadowbox" id="newsseed"></div>
+
+  <br>
+  (-=-) How to use (-=-)<br>
+  Any raffle ID first provided registered is stored in the database, alongside the date the raffle is drawn.<br>
+  If you enter an existing raffle ID, you will either see the winner of the raffle or know when it will be drawn.<br>
+
+  <br>
+  (-=-) How it works (-=-)<br>
+  (1) Takes raffle ID (seed) to check for, as per above.<br>
+  (2) Then examines the number of participants<br>
+  (3) Impartial external seed: <div id=news><i>automatically derived from The Guardian</i></div>
+  <br><br>
+
+
 
 </body>
 
 </html>
-

@@ -59,7 +59,8 @@ function drawRaffle(){
   // Obtain the reference user provided
   var seed_reference = document.getElementById("input_raffleRef").value;
   // Obtain the participants number user provided
-  var number_participants = document.getElementById("input_participants").value;
+  // TODO: Make this automatically derived upon check execution from the DB
+  var number_participants = 3;
 
 
   var final_seed = "";

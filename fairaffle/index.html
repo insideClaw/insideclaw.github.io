@@ -6,14 +6,19 @@
 </head>
 
 <body>
-  <script src="raffle.js"></script>
+  <script src="raffle-put.js"></script>
+  <script src="raffle-get.js"></script>
 
-  Enter a raffle ID (seed) to register / check for.
+  Enter a raffle ID (seed) to check for:
   <input type="text" id="input_raffleRef"> <br>
-
   <button type="button" onClick="drawRaffle()">Check outcome</button><br>
   <div class="shadowbox" id="result"></div>
   <div class="shadowbox" id="newsseed"></div>
+
+  OR register a new raffle with a raffle ID (seed) of your choice:
+  <input type="text" id="input_newRaffleID"> <br>
+  <button type="button" onClick="registerNewRaffle()">Check outcome</button><br>
+
 
   <br>
   (-=-) How to use (-=-)<br>

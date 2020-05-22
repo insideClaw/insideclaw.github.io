@@ -9,14 +9,18 @@ Math.seededRandom = function(max, min) {
     return min + rnd * (max - min);
 }
 
-function getSaltySeededRandom(seed, max){
-  // TODO: Provide that using saltMySeeds()
-  // the initial seed
-  Math.seed = seed;
+function getPreseededRNG(final_seed, max){
+  /* Simple RNG that rolls a random number within the given max range
+   HOWEVER using a predetermined seed for the RNG roll
+  */
 
-  // in order to work 'Math.seed' must NOT be undefined,
-  // so in any case, you HAVE to provide a Math.seed
+  // Set final seed, as produced by combineSeeds()
+  // in order for the RNG to work 'Math.seed' must NOT be undefined so you HAVE to provide it
+  Math.seed = final_seed;
+
+  // Get a random number between 1 and the maximum (number of participants)
   seededRandomFloating = Math.seededRandom(max, 1)
+  // Truncate the float number to a whole integer
   seededRandom = Math.trunc( seededRandomFloating )
   return(seededRandom)
 }
@@ -83,8 +87,8 @@ function drawRaffle(){
     // Returns the final seed by salting the seed reference (the word the user knows) + the news article
     final_seed = combineSeeds(seed_reference, seed_secret)
 
-    // Calculate winner
-    winner = getSaltySeededRandom(final_seed, number_participants)
+    // Calculate winner - dependent on the total participants
+    winner = getPreseededRNG(final_seed, number_participants)
     // Present result to the user
     document.getElementById("result").innerHTML = winner;
   })

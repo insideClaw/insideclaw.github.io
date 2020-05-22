@@ -1,20 +1,52 @@
 <!DOCTYPE HTML>
-<html>
+
+<html lang="en">
 <title>Transparent Raffle</title>
 <head>
-  <link rel="stylesheet" href="styling.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body><center>
   <script src="raffle.js"></script>
 
-  (1) Enter raffle ID (seed) to check for: <input type="text" id="input_raffleRef"> <br>
-  (2) Enter number of participants: <input type="text" id="input_participants"> <br>
-  (3) Impartial external seed: <div id=news><i>automatically derived from The Guardian</i></div>
-  <br><br>
+  <br><div class="container-fluid"><strong>
+    <div class="alert alert-success">
+      (1) Enter raffle ID (seed) to check for: <input type="text" id="input_raffleRef">
+    </div>
+    <div class="alert alert-success">
+      (2) Enter number of participants: <input type="number" id="input_participants">
+    </div></strong>
 
-  <button type="button" onClick="drawRaffle()">Check outcome</button><br>
-  <div class="shadowbox" id="result"></div>
+    <div class="alert alert-info">
+      (3) Impartial external seed: <div id=news><i>will be derived automatically from The Guardian</i></div>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="container">
+    <button type="button" class="btn btn-primary btn-lg" onClick="drawRaffle()">Check who wins!</button><br><br>
+    <div class="jumbotron">
+      <h1><span class="label label-default" id="result"></span></h1><br>
+      <span class="label label-success id="fetch_time"">Result fetched at </span>
+      <span class="label label-info">News published at </span>
+    </div>
+  </div>
+
+  <button data-toggle="collapse" data-target="#extrainfo">How it works</button>
+  <div id="extrainfo" class="collapse">
+    * News are sometimes published in rapid succession, so if the result is not as stated by somebody, most likely the most recent news has changed since that time.
+  </div>
+
 
 </body>
 

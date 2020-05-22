@@ -23,6 +23,7 @@ function getSaltySeededRandom(seed, max){
 
 function representCharactersAsNumbers(inputString){
   // Loop through every char of the seed and assign its numerical representation into the combined seed
+  // TODO-luxury: Compress the values of really long strings so the number isn't huge
   numerical_representation = ""
   for (var i = 0; i < inputString.length; i++) {
     numerical_representation += inputString.charCodeAt(i)
@@ -33,10 +34,17 @@ function representCharactersAsNumbers(inputString){
 function combineSeeds(){
   // Create a unique signature (collating multiple seeds), given two arbitrary strings.
   combinedSeed = ""
-  for(var seed in arguments){
-    combinedSeed += representCharactersAsNumbers(seed)
+
+  // Declare loop factors
+  var i = 0,
+    len = arguments.length;
+
+  // Loop through every seed that has been passed and mix them together, returning a unique number
+  for( ; i < len; i += 1 ){
+    seedRaw = arguments[i]
+    seedAsNumber = representCharactersAsNumbers(seedRaw)
+    combinedSeed += seedAsNumber
   }
-  console.log(combinedSeed)
 
   return(combinedSeed)
 }
@@ -72,7 +80,7 @@ function drawRaffle(){
     // Show the fetched secret seed to the user
     document.getElementById("news").innerHTML = seed_secret;
 
-    // TODO: Currently just returns argument1
+    // Returns the final seed by salting the seed reference (the word the user knows) + the news article
     final_seed = combineSeeds(seed_reference, seed_secret)
 
     // Calculate winner

@@ -70,7 +70,6 @@ async function getNewsArticle(){
   //proceed once the first promise is resolved.
   let newsItems = await response.json()
   //proceed only when the second promise is resolved
-  console.log(newsItems)
   return newsItems;
 }
 

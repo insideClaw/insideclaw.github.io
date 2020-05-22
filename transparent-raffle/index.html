@@ -36,7 +36,7 @@
   <div class="container">
     <button type="button" class="btn btn-primary btn-lg" onClick="drawRaffle()">Check who wins!</button><br><br>
     <div class="jumbotron">
-      <h1><span class="label label-default" id="result"></span></h1><br>
+      <h1><span class="label label-primary" id="result">#</span></h1><br>
       <span class="label label-success id="fetch_time"">Result fetched at </span>
       <span class="label label-info">News published at </span>
     </div>
@@ -44,7 +44,13 @@
 
   <button data-toggle="collapse" data-target="#extrainfo">How it works</button>
   <div id="extrainfo" class="collapse">
-    * News are sometimes published in rapid succession, so if the result is not as stated by somebody, most likely the most recent news has changed since that time.
+    <ul class="list-group">
+      <li class="list-group-item">You need to give out raffle numbers to people - for example:<br>
+      Raffle # = comment order (1 per person)</li>
+      <li class="list-group-item">    The very purpose is that the code is transparently <a href="https://github.com/insideClaw/insideclaw.github.io" target="_blank">available for inspection</a></li>
+      <li class="list-group-item">    Bear in mind news are sometimes published in rapid succession, so the result for the same seed and participants is only the same for any given time while the latest news last.</li>
+    </ul>
+
   </div>
 
 

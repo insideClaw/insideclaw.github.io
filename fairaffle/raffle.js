@@ -28,15 +28,18 @@ function getPreseededRNG(final_seed, max){
 function representCharactersAsNumbers(inputString){
   // Loop through every char of the seed and assign its numerical representation into the combined seed
   // TODO-luxury: Compress the values of really long strings so the number isn't huge
-  numerical_representation = ""
+  numRepresentation = 0
+  // Create the numerical representation for the given string by addition
   for (var i = 0; i < inputString.length; i++) {
-    numerical_representation += inputString.charCodeAt(i)
+    numRepresentation = numRepresentation + inputString.charCodeAt(i)
   }
-  return(numerical_representation)
+  return(numRepresentation)
 }
 
 function combineSeeds(){
-  // Create a unique signature (collating multiple seeds), given two arbitrary strings.
+  /* Create a unique signature (collating multiple seeds), given two arbitrary strings.
+     It can take any characters, since they get minced to numbers no matter what
+  */
   combinedSeed = ""
 
   // Declare loop factors

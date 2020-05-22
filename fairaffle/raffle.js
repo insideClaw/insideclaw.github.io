@@ -29,7 +29,9 @@ function getPreseededRNG(final_seed, max){
 }
 
 function representCharactersAsNumbers(inputString){
-  // Loop through every char of the seed and assign its numerical representation into the combined seed
+  /* Loop through every char of the seed and assign
+   its numerical representation into the combined seed
+  */
   numRepresentation = 0
   // Create the numerical representation for the given string by addition
   for (var i = 0; i < inputString.length; i++) {
@@ -77,7 +79,6 @@ function drawRaffle(){
   var seed_reference = document.getElementById("input_raffleRef").value;
   // Obtain the participants number user provided
   var number_participants = document.getElementById("input_participants").value;
-
 
   var final_seed = "";
   // Set the initial message while value is being fetched

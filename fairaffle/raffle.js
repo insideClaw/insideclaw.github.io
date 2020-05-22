@@ -1,5 +1,6 @@
 
 Math.seededRandom = function(max, min) {
+  /* Math that allows a seeded RNG  */
     max = max || 1;
     min = min || 0;
 
@@ -15,9 +16,11 @@ function getPreseededRNG(final_seed, max){
   */
 
   // Set final seed, as produced by combineSeeds()
-  // in order for the RNG to work 'Math.seed' must NOT be undefined so you HAVE to provide it
+  // In order for the RNG to work 'Math.seed' must NOT be undefined,
+  // so you HAVE to provide it
   Math.seed = final_seed;
-
+  // Pad max by 1 to make the RNG inclusive, as the function is exclusive
+  max = Number(max) + 1;
   // Get a random number between 1 and the maximum (number of participants)
   seededRandomFloating = Math.seededRandom(max, 1)
   // Truncate the float number to a whole integer
@@ -27,7 +30,6 @@ function getPreseededRNG(final_seed, max){
 
 function representCharactersAsNumbers(inputString){
   // Loop through every char of the seed and assign its numerical representation into the combined seed
-  // TODO-luxury: Compress the values of really long strings so the number isn't huge
   numRepresentation = 0
   // Create the numerical representation for the given string by addition
   for (var i = 0; i < inputString.length; i++) {

@@ -96,5 +96,7 @@ function drawRaffle(){
     winner = getPreseededRNG(final_seed, number_participants)
     // Present result to the user
     document.getElementById("result").innerHTML = winner;
+    // Update visible fetch timestamps
+    document.getElementById("time-fetched").innerHTML = "Result fetched at " + new Date().toLocaleTimeString()
   })
 }

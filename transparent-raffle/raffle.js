@@ -85,7 +85,6 @@ function drawRaffle(){
   .then(function(newsItems){
     // TODO: Select a meaningful item as the chosen one
     seed_secret = newsItems.response.results[0]["id"]
-
     // Show the fetched secret seed to the user
     document.getElementById("news").innerHTML = seed_secret;
 
@@ -96,7 +95,11 @@ function drawRaffle(){
     winner = getPreseededRNG(final_seed, number_participants)
     // Present result to the user
     document.getElementById("result").innerHTML = winner;
-    // Update visible fetch timestamps
+    // Update visible fetch timestamp
     document.getElementById("time-fetched").innerHTML = "Result fetched at " + new Date().toLocaleTimeString()
+    // Update visible news timestamp
+    document.getElementById("time-news-published").innerHTML = "News published at " + newsItems.response.results[0]["webPublicationDate"]
+
+
   })
 }

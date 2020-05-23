@@ -63,7 +63,10 @@ function combineSeeds(){
 async function getNewsArticle(){
   // Fetches the seed, something that nobody knows until it's out, tell user it's too early if not possible
   var APIkey = "50860275-8a99-4b1e-811b-a1f0bba13c11"
+  var keywords = ""
   var endpointAPI = "https://content.guardianapis.com/search?api-key=" + APIkey
+  //var endpointAPI = "https://content.guardianapis.com/search?q="+keywords+"&api-key=" + APIkey
+
 
   //await the response of the fetch call
   let response = await fetch(endpointAPI);
@@ -87,6 +90,7 @@ function drawRaffle(){
     seed_secret = newsItems.response.results[0]["id"]
     // Show the fetched secret seed to the user
     document.getElementById("news").innerHTML = seed_secret;
+    console.log(newsItems.response)
 
     // Returns the final seed by salting the seed reference (the word the user knows) + the news article
     final_seed = combineSeeds(seed_reference, seed_secret)

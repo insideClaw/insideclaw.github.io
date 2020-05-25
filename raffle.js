@@ -1,4 +1,7 @@
 
+// Add a function allowing to check if array has a specific item number
+const arrayHasIndex = (array, index) => Array.isArray(array) && array.hasOwnProperty(index);
+
 Math.seededRandom = function(max, min) {
   /* Math that allows a seeded RNG  */
     max = max || 1;

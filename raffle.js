@@ -109,7 +109,13 @@ function drawRaffle(){
 
     // Calculate winner - dependent on the total participants
     winner = getPreseededRNG(final_seed, number_participants)
-    // Present result to the user
+
+    // Set the custom name for the winner if the user has provided it for that participant (accounting for array starting at 0)
+    if (arrayHasIndex(arr_customNames,[winner-1]) && arr_customNames[winner-1].value != "") {
+      winner = arr_customNames[winner-1].value;
+    }
+
+    // Present result of who wins to the user
     document.getElementById("result").innerHTML = winner;
     // Update visible fetch timestamp
     document.getElementById("time-fetched").innerHTML = "Result fetched at " + new Date().toLocaleTimeString()

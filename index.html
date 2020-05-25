@@ -39,10 +39,19 @@
     </div>
     <div class="alert alert-success">
       (2) Enter number of participants: <input type="number" id="input_participants">
-    </div></strong>
+    </div>
+
+    <div class="alert alert-success">
+      <form name="form_customNames" id="form_customNames" onsubmit="return validateForm()">
+          <i>(3) Enter custom participant names (optional):</i>
+          <input type="button" id="btn_addName" value="Add participant" />
+          <br/>
+      </form>
+    </div>
+    </strong>
 
     <div class="alert alert-info">
-      (3) Impartial external seed: <div id=news><i>will be derived automatically from The Guardian</i></div>
+      (4) Impartial external seed: <div id=news><i>will be derived automatically from The Guardian</i></div>
     </div>
   </div>
 

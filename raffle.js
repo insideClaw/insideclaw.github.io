@@ -2,6 +2,19 @@
 // Add a function allowing to check if array has a specific item number
 const arrayHasIndex = (array, index) => Array.isArray(array) && array.hasOwnProperty(index);
 
+// Attach an onclick behavior to the add participant button
+var arr_customNames = []
+document.getElementById("btn_addName").onclick = function() {
+    var form = document.getElementById("form_customNames");
+    var input = document.createElement("input");
+    input.type = "text";
+    // Add the form text box to array for later fetching
+    arr_customNames.push(input)
+    var br = document.createElement("br");
+    form.appendChild(input);
+    form.appendChild(br);
+}
+
 Math.seededRandom = function(max, min) {
   /* Math that allows a seeded RNG  */
     max = max || 1;
